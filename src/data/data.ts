@@ -5,24 +5,28 @@ export const bodyCAtegory = [
         id:'brazos',
         exCategory: 'brazos',
         img: require('../../assets/brazo.png'),
-        color: 'linear-gradient(328deg, rgba(198,224,255,1) 9%, rgba(147,196,255,1) 49%)'
+        colors: ['#5FFBF1', '#c9c6FF', theme.colors.blue ],
+        color: theme.colors.blue
     },
     {
         id:'piernas',
         exCategory: 'piernas',
         img: require('../../assets/pierna.png'),
-        color: 'linear-gradient(328deg, rgba(201,198,255,1) 8%, rgba(153,147,255,1) 58%);'
+        colors: [theme.colors.purple, '#FEBFF8', '#FFBAD8'],
+        color: theme.colors.purple,
     },
     {
         id:'hombros',
         exCategory: 'hombros',
         img: require('../../assets/hombro.png'),
-        color: theme.colors.rose
+        color: theme.colors.rose,
+        colors: ['#74A7EE', '#C3B5FA', theme.colors.rose]
     },
     {
         id:'pecho',
         exCategory: 'pecho',
         img: require('../../assets/pecho.png'),
-        color: theme.colors.orange
+        color: theme.colors.orange,
+        colors: [theme.colors.orange, '#D9AAB9', '#AE90A8']
     }
 ]

@@ -2,6 +2,7 @@ import React, { Children, ClassType } from 'react'
 import {View, StyleSheet, Text} from 'react-native';
 import theme from '../theme';
 
+
 interface props {
     children: any
     boxType:string
@@ -17,7 +18,8 @@ const styles = StyleSheet.create ({
         width:150,
         height:150,
         borderRadius: theme.borderRadius.borderRadius,
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'flex-start'
     },
 })
 
@@ -29,7 +31,8 @@ export default function StyledViewBox (props:props) {
         props.style
     ]
     return(
-        <View style={ViewBoxStyles}>
+        <View
+         style={ViewBoxStyles}>
             {props.children}
         </View>
     )

@@ -9,6 +9,7 @@ interface BodyCategoies {
     exCategory: string
     img: any
     color: string
+    colors: any
 }
 
 const styles = StyleSheet.create ({
@@ -17,7 +18,9 @@ const styles = StyleSheet.create ({
         top: -45,
         backgroundColor: theme.colors.trasparentWhite,
         borderRadius: 50,
-        padding: 13
+        padding: 13,
+        borderColor: '#fff',
+        borderWidth: 0.1,
     },
     
     image: {
@@ -25,23 +28,40 @@ const styles = StyleSheet.create ({
         height: 45,
     },
     
-    text: {
+    bodyTitle: {
         fontSize: theme.fontSizes.subheading,
-        fontWeight: '700'
+        fontWeight: '700',
+        marginTop: -30,
+        textAlign: 'center',
+    },
+    bodyDescription:{
+        fontSize: theme.fontSizes.body,
+    },
+    flex1:{
+        flex:1
     }
 })
 
 const BodyItem = (props: BodyCategoies) => (
 
-<StyledViewBox key={props.id} boxType='Bodycategory' style={{backgroundColor: props.color}}>
+<StyledViewBox key={props.id} boxType='Bodycategory' style={{backgroundColor:props.color}}>
+
+            
     <View style={styles.imageContainer}>
         <Image
             source={props.img}
             style={styles.image}
-        />
+            />
     </View>
-    <Text style={styles.text}>{props.exCategory}</Text>
-    </StyledViewBox>
+
+
+
+    <View style={styles.flex1}>
+        <Text style={styles.bodyTitle}>{props.exCategory}</Text>
+        <Text>Biceps, antebrazo, tensores, etc...</Text>
+    </View>
+
+</StyledViewBox>
 )
 
 export default BodyItem

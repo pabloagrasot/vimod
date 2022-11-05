@@ -8,7 +8,8 @@ const theme = {
         green: '#C6FFC8',
         white: '#fff',
         black: '#333',
-        trasparentWhite: 'rgba(255,255,255,0.5)'
+        trasparentWhite: 'rgba(255,255,255,0.5)',
+        gradient: ['#74A7EE', '#C3B5FA', '#FFC6FC']
     },
 
     fontSizes:{
@@ -19,7 +20,7 @@ const theme = {
 
     fontWeights: {
         normal: 400,
-        bold: 700,
+        bold: '700',
     },
 
     borderRadius:{
