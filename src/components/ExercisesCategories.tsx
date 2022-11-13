@@ -8,7 +8,7 @@ import BodyItem from './BodyItem'
 const styles = StyleSheet.create ({
     container: {
       marginTop: 20,
-      
+      flex: 1
     },
     heading: {
       fontSize: theme.fontSizes.heading,
@@ -17,35 +17,30 @@ const styles = StyleSheet.create ({
       alignItems:'center',
       textAlign:'center',
       padding: 10,
-      marginVertical: 10,
-      backgroundColor: 'transparent'    
+      marginVertical: 10       
   }
 })
 
 
-const BodyCategoies = () => {
+const ExercisesCategories = () => {
 return(
 
   <View style={{flex: 1}}>
 
-    <View>
-      <Text style={styles.heading}>Busca ejercicios por grupos musculares</Text>
-    </View>
-
-    
-      <FlatList
+    <Text style={styles.heading}>Selecciona los ejercicios para la rutina</Text>
+  
+    <FlatList
         style={styles.container}
-        numColumns={2}
+        numColumns={1}
         data={bodyCAtegory}
         renderItem={({item: category}) => (
             <BodyItem { ...category} />
         )}
       />
-
   </View>
 
 
 )
 }
 
-export default BodyCategoies
+export default ExercisesCategories
