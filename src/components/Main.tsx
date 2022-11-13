@@ -1,9 +1,10 @@
 import React from 'react'
-import {View }from 'react-native'
+import {View, Text}from 'react-native'
 import Constants from 'expo-constants'
 import {Route, Switch} from 'react-router-native'
 import BodyCategoies from './BodyCategories'
 import ExercisesCategories from './ExercisesCategories'
+import NavBar from './NavBar'
 
 
 
@@ -12,19 +13,30 @@ import ExercisesCategories from './ExercisesCategories'
 const Main = () => {
     return (
 
-        <View style={{marginTop: Constants.statusBarHeight, flex: 1}}>
+        <View style={{ marginTop: Constants.statusBarHeight, flex: 1 }}>
             <Switch>
                 <Route path='/' exact>
-                    <BodyCategoies/>
+                    <BodyCategoies />
                 </Route>
+
 
                 <Route path='/exercises'>
-                    <ExercisesCategories/>
+                    <ExercisesCategories />
                 </Route>
 
+                <Route path='/play'>
+                    <Text>Play</Text>
+                </Route>
 
-            </Switch>  
+                <Route path='/settings'>
+                    <Text>Configuracion</Text>
+                </Route>
+            </Switch>
+            <NavBar />
         </View>
+
+        
+
     )
 }
 

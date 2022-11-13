@@ -1,6 +1,6 @@
-import React, { Children, ClassType } from 'react'
-import {View, StyleSheet, Text} from 'react-native';
-import { Link } from 'react-router-native';
+import React from 'react'
+import {View, StyleSheet, Text, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
+import { Link, Route} from 'react-router-native';
 import theme from '../theme';
 import ExercisesCategories from './ExercisesCategories';
 
@@ -23,12 +23,6 @@ const styles = StyleSheet.create ({
         alignItems: 'center',
         justifyContent: 'flex-start'
     },
-
-    link: {
-        width: 'auto',
-        marginHorizontal: 'auto',
-        
-    }
 })
 
 
@@ -38,14 +32,21 @@ export default function StyledViewBox (props:props) {
         props.boxType == 'Bodycategory' && styles.container,
         props.style
     ]
-    return(
-        <Link style={styles.link} to='/exercises'>
-            <View
-                style={ViewBoxStyles}>
+
+    if (props.boxType === 'Bodycategory') {
+        return(
+        <Link style={ViewBoxStyles} to='/exercises' component={TouchableOpacity}>
+            <View>
                 {props.children}
             </View>
         </Link>
-
-    )
+        )
+    } else {
+        return(
+        <View style={ViewBoxStyles}>
+            {props.children}
+        </View>
+        )
+    }
 }
 

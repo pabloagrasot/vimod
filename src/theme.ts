@@ -8,14 +8,16 @@ const theme = {
         green: '#C6FFC8',
         white: '#fff',
         black: '#333',
+        grey: '#e3e2e5',
         trasparentWhite: 'rgba(255,255,255,0.5)',
         gradient: ['#74A7EE', '#C3B5FA', '#FFC6FC']
     },
 
     fontSizes:{
+        small: 11,
         body: 14,
-        heading:18,
         subheading: 16,
+        heading:18,
     },
 
     fontWeights: {
