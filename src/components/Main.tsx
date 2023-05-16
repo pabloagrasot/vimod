@@ -5,6 +5,7 @@ import {Route, Switch} from 'react-router-native'
 import BodyCategoies from './BodyCategories'
 import ExercisesCategories from './ExercisesCategories'
 import NavBar from './NavBar'
+import theme from '../theme'
 
 
 
@@ -13,22 +14,22 @@ import NavBar from './NavBar'
 const Main = () => {
     return (
 
-        <View style={{ marginTop: Constants.statusBarHeight, flex: 1 }}>
+        <View style={{ marginTop: Constants.statusBarHeight, flex: 1, backgroundColor: theme.colors.blueD}}>
             <Switch>
                 <Route path='/' exact>
                     <BodyCategoies />
                 </Route>
 
 
-                <Route path='/exercises'>
+                <Route exact path='/exercises/:id'>
                     <ExercisesCategories />
                 </Route>
 
-                <Route path='/play'>
+                <Route exact path='/play'>
                     <Text>Play</Text>
                 </Route>
 
-                <Route path='/settings'>
+                <Route exact path='/settings'>
                     <Text>Configuracion</Text>
                 </Route>
             </Switch>

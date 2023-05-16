@@ -1,14 +1,33 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import { FlatList, StyleSheet, View, Text} from 'react-native'
-import {bodyCAtegory} from '../data/data'
+import { useParams } from 'react-router-native'
+import {exercises} from '../data/dataExercises'
 import theme from '../theme'
-import BodyItem from './BodyItem'
+import ExerciseItem from './ExerciseItem'
 
+
+interface RouteParams {
+  id:string
+}
+
+
+type Exercise = {
+  id: string;
+  exName: string;
+  exDescription: string;
+  img: any;
+  colors: string;
+}
+
+type Category = {
+  [key:string]: Exercise
+}
 
 const styles = StyleSheet.create ({
     container: {
-      marginTop: 20,
-      flex: 1
+      marginTop: 10,
+      marginHorizontal: 10,
     },
     heading: {
       fontSize: theme.fontSizes.heading,
@@ -17,24 +36,41 @@ const styles = StyleSheet.create ({
       alignItems:'center',
       textAlign:'center',
       padding: 10,
-      marginVertical: 10       
+      marginVertical: 10,
+      marginTop: 30,
+      marginHorizontal: 30,
+
   }
 })
 
 
-const ExercisesCategories = () => {
-return(
 
+
+const ExercisesCategories = () => {
+
+const {id} = useParams<RouteParams>()
+const [data, setData] = useState({})
+
+
+
+useEffect(() => {
+setData(exercises[id as keyof typeof exercises])
+}, [])
+
+
+return(
+  
   <View style={{flex: 1}}>
 
-    <Text style={styles.heading}>Selecciona los ejercicios para la rutina</Text>
+    <Text style={styles.heading}>Selecciona los ejercicios para la rutina {id}</Text>
   
     <FlatList
         style={styles.container}
         numColumns={1}
-        data={bodyCAtegory}
-        renderItem={({item: category}) => (
-            <BodyItem { ...category} />
+        // @ts-ignore
+        data={data}
+        renderItem={({item: exercise}) => (
+            <ExerciseItem { ...exercise} />
         )}
       />
   </View>

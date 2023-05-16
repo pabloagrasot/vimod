@@ -1,6 +1,8 @@
-import React from 'react';
-import {View, Image, Text, StyleSheet} from 'react-native';
+import React, { createContext } from 'react';
+import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { Link } from 'react-router-native';
 import theme from '../theme';
+
 import StyledViewBox from './StyledViewBox'
 
 
@@ -16,13 +18,17 @@ interface BodyCategoies {
 const styles = StyleSheet.create ({
 
     imageContainer: {
-        top: -45,
+        top: -40,
         backgroundColor: theme.colors.trasparentWhite,
         borderRadius: 50,
         padding: 13,
         borderWidth: 1.5,
         borderStyle: 'solid',
-
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems:'center',
+        width: 75,
+        height: 75
     },
     
     image: {
@@ -47,13 +53,13 @@ const styles = StyleSheet.create ({
 const BodyItem = (props: BodyCategoies) => {
 
 
-const color = props.color
+const color = props.color // Color de la data
 
 return (
 
-    
 <StyledViewBox key={props.id} boxType='Bodycategory' style={{backgroundColor:color}}>
 
+<Link to={`/exercises/${props.id}`} component={TouchableOpacity}>
             
     <View style={[styles.imageContainer, {borderColor: color}]} >
         <Image
@@ -69,7 +75,10 @@ return (
         <Text>Biceps, antebrazo, tensores, etc..................................................................</Text>
     </View>
 
+</Link>
+
 </StyledViewBox>
+
 )}
 
 export default BodyItem

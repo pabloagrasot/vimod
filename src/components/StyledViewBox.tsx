@@ -1,8 +1,7 @@
 import React from 'react'
-import {View, StyleSheet, Text, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
-import { Link, Route} from 'react-router-native';
+import {View, StyleSheet} from 'react-native';
 import theme from '../theme';
-import ExercisesCategories from './ExercisesCategories';
+
 
 
 interface props {
@@ -12,7 +11,7 @@ interface props {
 }
 
 const styles = StyleSheet.create ({
-    container: {
+    containerCategories: {
         flex: 1,
         margin: 10,
         marginVertical: 30,
@@ -23,30 +22,31 @@ const styles = StyleSheet.create ({
         alignItems: 'center',
         justifyContent: 'flex-start'
     },
+    containerExercises: {
+        flex: 1,
+        margin: 10,
+        marginVertical: 10,
+        borderRadius: theme.borderRadius.borderRadius,
+        alignItems: 'center',
+        width: 'auto'
+    }
 })
 
 
 export default function StyledViewBox (props:props) {
 
     const ViewBoxStyles = [
-        props.boxType == 'Bodycategory' && styles.container,
+        props.boxType == 'Bodycategory' && styles.containerCategories,
+        props.boxType == 'Exercisescategory' && styles.containerExercises,
         props.style
     ]
 
-    if (props.boxType === 'Bodycategory') {
+    const id = props.children.id;
         return(
-        <Link style={ViewBoxStyles} to='/exercises' component={TouchableOpacity}>
-            <View>
+            <View style={ViewBoxStyles}>
                 {props.children}
             </View>
-        </Link>
         )
-    } else {
-        return(
-        <View style={ViewBoxStyles}>
-            {props.children}
-        </View>
-        )
-    }
+    
 }
 

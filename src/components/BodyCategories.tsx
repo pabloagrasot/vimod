@@ -7,8 +7,8 @@ import BodyItem from './BodyItem'
 
 const styles = StyleSheet.create ({
     container: {
-      marginTop: 20,
-      
+      marginTop: 10,
+      marginHorizontal: 10,
     },
     heading: {
       fontSize: theme.fontSizes.heading,
@@ -18,7 +18,8 @@ const styles = StyleSheet.create ({
       textAlign:'center',
       padding: 10,
       marginVertical: 10,
-      backgroundColor: 'transparent'    
+      marginTop: 30,
+      marginHorizontal: 30,
   }
 })
 
